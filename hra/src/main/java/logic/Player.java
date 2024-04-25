@@ -30,13 +30,6 @@ public class Player extends Entity implements KeyListener {
         if (down){
             y+=4;
         }
-        if(left){
-            x-=4;
-
-        }
-        if (right){
-            x+=4;
-        }
     }
     public void draw(Graphics g){
         g.drawImage(image, x,y,width,height,null);
@@ -58,12 +51,7 @@ public class Player extends Entity implements KeyListener {
         if(keys == KeyEvent.VK_S){
             down=true;
         }
-        if(keys == KeyEvent.VK_D){
-            right=true;
-        }
-        if(keys == KeyEvent.VK_A){
-            left=true;
-        }
+
 
     }
 
@@ -76,12 +64,6 @@ public class Player extends Entity implements KeyListener {
         }
         if(keys == KeyEvent.VK_S){
             down=false;
-        }
-        if(keys == KeyEvent.VK_D){
-            right=false;
-        }
-        if(keys == KeyEvent.VK_A){
-            left=false;
         }
     }
 }

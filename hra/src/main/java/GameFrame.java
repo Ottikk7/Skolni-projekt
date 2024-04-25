@@ -4,15 +4,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class GameFrame extends JFrame {
-    GameLogic panel;
+    GamePanel panel;
     GameFrame(){
-        panel = new GameLogic();
+        panel = new GamePanel();
         add(panel);
         pack();
         setResizable(false);
 
         setVisible(true);
-        setTitle("Score zero");
+        setTitle("Beat the keeper");
         setLocationRelativeTo(null);
         try {
             setIconImage(ImageIO.read(new File("src/main/resources/ovladac game.png")));

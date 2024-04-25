@@ -19,6 +19,7 @@ public class Enemy extends Entity {
 
     }
 
+
     public void move(){
         y += speed;
         if(y < 120){
