@@ -2,7 +2,7 @@ package logic;
 
 import java.awt.*;
 
-public class Goal extends  Entity{
+public final class Goal  extends  Entity  {
     public Goal(int x, int y){
         super("brankaa.png");
         this.x = x;
@@ -15,4 +15,6 @@ public class Goal extends  Entity{
         g.drawImage(image, x,y,200,250,null);
 
     }
+
+
 }

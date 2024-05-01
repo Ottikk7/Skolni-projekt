@@ -13,7 +13,7 @@ public class Enemy extends Entity {
         this.x = x;
         this.y = y;
         width= 60;
-        height= 75;
+        height= 80;
 
 
 

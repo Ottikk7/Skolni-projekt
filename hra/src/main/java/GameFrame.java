@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class GameFrame extends JFrame {
     GamePanel panel;
+
     GameFrame(){
         panel = new GamePanel();
         add(panel);
@@ -21,4 +22,5 @@ public class GameFrame extends JFrame {
         }
 
     }
+
 }
