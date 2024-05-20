@@ -7,8 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.Buffer;
 
-public class Entity extends Coordinates  {
+public class Entity extends Attributes  {
     BufferedImage image;
+    int speed;
     public Entity(String file){
         try {
             image = ImageIO.read(new File("src/main/resources/" + file));
@@ -18,6 +19,13 @@ public class Entity extends Coordinates  {
     }
     public Rectangle getRectangle(){
         return new Rectangle(x,y,width,height);
+    }
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
 }

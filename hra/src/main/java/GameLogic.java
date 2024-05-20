@@ -17,8 +17,10 @@ public class GameLogic implements KeyListener {
     Player player;
     boolean isShooting = false;
     boolean game;
+    int gameLevel;
     Enemy enemy;
     Ball ball;
+    boolean rules;
     Goal goal;
 
     GameLogic(int winWidth, int winHeight){
@@ -40,6 +42,8 @@ public class GameLogic implements KeyListener {
             player.move();
             enemy.move();
             updateBall();
+            updatePlayer();
+            updateEnemy();
             checkCollision();
 
         }
@@ -54,43 +58,69 @@ public class GameLogic implements KeyListener {
     public void checkCollision(){
         if(enemy.getRectangle().intersects(ball.getRectangle())){
             game = false;
-            reset();
-
             System.out.println("Brankář to vychytal");
 
         }
     }
 
+    public void updateEnemy(){
+        if(score == 5){
+            if(enemy.getSpeed() <= -1){
+                enemy.setSpeed(-2);
+            }
+            if(enemy.getSpeed() >= 1){
+                enemy.setSpeed(2);
+            }
+            gameLevel = 2;
+        }
+        if(score == 10){
+            if(enemy.getSpeed() <= -1){
+                enemy.setSpeed(-3);
+            }
+            if(enemy.getSpeed() >= 1){
+                enemy.setSpeed(3);
+            }
+            gameLevel = 3;
+
+        }
+        if(score == 15){
+            if(enemy.getSpeed() <= -1){
+                enemy.setSpeed(-4);
+            }
+            if(enemy.getSpeed() >= 1){
+                enemy.setSpeed(4);
+            }
+            gameLevel = 4;
 
 
 
+        }
 
+    }
+    public void updatePlayer(){
+        if(player.getY()<0){
+            player.setY(0);
+        }
+        if(player.getY()>winHeight - player.getHeight()){
+            player.setY(winHeight - player.getHeight());
+        }
 
-
-
-
+    }
     public void updateBall(){
-
         if(isShooting){
             ball.x -= 10;
         }else {
             ball.setX(player.getX() - 10);
             ball.setY(player.getY() + 40);
         }
-        if(ball.getX() == 60 && ball.getY() > 150 && ball.getY() < 405   ){
+        if(ball.getX() == 60 && ball.getY() > 170 && ball.getY() < 405){
             score++;
-            System.out.println(score);
 
-        } else{
-            if (ball.getX() == 0 && ball.getY() > 430 && ball.getY() < 140){
+        } else if(ball.getX() == 0 && ball.getY() > 405){
                 game = false;
-                reset();
-
-
-            }
+        } else if(ball.getX() == 0 && ball.getY() < 150){
+            game = false;
         }
-
-
 
         if(ball.getX() < -470){
             isShooting = false;
@@ -106,6 +136,9 @@ public class GameLogic implements KeyListener {
         player.setY(280);
         ball.setX(player.getX() - 10);
         ball.setY(player.getY() + 40);
+        enemy.setSpeed(1);
+        gameLevel = 1;
+        score = 0;
 
     }
 
@@ -125,12 +158,24 @@ public class GameLogic implements KeyListener {
 
         if(!game && keys == KeyEvent.VK_SPACE){
             game = true;
-            score = 0;
+
+            reset();
+        }
+        if(!game && !rules && keys == KeyEvent.VK_R){
+            rules = true;
+        }else if(!game && rules && keys == KeyEvent.VK_R){
+            rules = false;
+
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        int keys = e.getKeyCode();
+        if(game){
+            if(keys == KeyEvent.VK_L){
+                System.exit(0);
+            }
+        }
     }
 }

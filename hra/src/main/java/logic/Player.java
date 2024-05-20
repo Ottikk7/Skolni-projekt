@@ -6,10 +6,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Player extends Entity implements KeyListener {
-    boolean up, left, down, right;
+    boolean up, down;
 
     public Player(int x, int y){
         super("ronaldo pixel.png");
+        speed = 4;
         this.x = x;
         this.y = y;
         width= 60;
@@ -25,11 +26,12 @@ public class Player extends Entity implements KeyListener {
 
     public void move(){
         if(up){
-            y -= 4;
+            y -= speed;
         }
         if (down){
-            y+=4;
+            y+= speed;
         }
+
     }
     public void draw(Graphics g){
         g.drawImage(image, x,y,width,height,null);

@@ -4,16 +4,21 @@ import java.io.File;
 import java.io.IOException;
 
 public class GameFrame extends JFrame {
-    GamePanel panel;
+    GameUpdate panel;
+
+    public static void main(String[] args) {
+        new GameFrame();
+    }
 
     GameFrame(){
-        panel = new GamePanel();
+        panel = new GameUpdate();
         add(panel);
         pack();
         setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setVisible(true);
-        setTitle("Beat the keeper");
+        setTitle("Beat the KEEPER");
         setLocationRelativeTo(null);
         try {
             setIconImage(ImageIO.read(new File("src/main/resources/ovladac game.png")));

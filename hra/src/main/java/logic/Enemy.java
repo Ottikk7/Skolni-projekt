@@ -5,13 +5,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Enemy extends Entity {
-    int speed = 3;
 
 
     public Enemy(int x, int y){
         super("brankar.png");
         this.x = x;
         this.y = y;
+        speed = 1;
         width= 60;
         height= 80;
 
