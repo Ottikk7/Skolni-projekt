@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Ball  extends Entity {
 
-    int speed = 3;
+
     public Ball(int x, int y){
         super("Balll.png");
         this.x = x;

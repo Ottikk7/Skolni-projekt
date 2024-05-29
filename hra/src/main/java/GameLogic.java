@@ -149,7 +149,9 @@ public class GameLogic implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         int keys = e.getKeyCode();
+
         if(game){
             if(keys == KeyEvent.VK_SPACE){
                 isShooting = true;
@@ -171,11 +173,6 @@ public class GameLogic implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int keys = e.getKeyCode();
-        if(game){
-            if(keys == KeyEvent.VK_L){
-                System.exit(0);
-            }
-        }
+
     }
 }

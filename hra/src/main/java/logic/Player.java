@@ -45,16 +45,14 @@ public class Player extends Entity implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int keys= e.getKeyCode();
-        if(keys == KeyEvent.VK_W){
-            up = true;
+            int keys= e.getKeyCode();
+            if(keys == KeyEvent.VK_W){
+                up = true;
 
-        }
-        if(keys == KeyEvent.VK_S){
-            down=true;
-        }
-
-
+            }
+            if(keys == KeyEvent.VK_S){
+                down=true;
+            }
     }
 
     @Override

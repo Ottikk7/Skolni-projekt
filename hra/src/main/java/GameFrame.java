@@ -6,7 +6,7 @@ import java.io.IOException;
 public class GameFrame extends JFrame {
     GameUpdate panel;
 
-    public static void main(String[] args) {
+    public static void   main(String[] args) {
         new GameFrame();
     }
 
