@@ -9,11 +9,8 @@ public class Ball  extends Entity {
         super("Balll.png");
         this.x = x;
         this.y = y;
-        width = 30;
-        height = 30;
-    }
-    public void draw(Graphics g){
-        g.drawImage(image, x,y,45,45,null);
+        width = 45;
+        height = 45;
     }
 
 }

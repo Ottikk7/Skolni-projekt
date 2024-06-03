@@ -12,11 +12,16 @@ public class Entity extends Attributes  {
     int speed;
     public Entity(String file){
         try {
-            image = ImageIO.read(new File("src/main/resources/" + file));
+            image = ImageIO.read(getClass().getResource("/" + file));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
     public Rectangle getRectangle(){
         return new Rectangle(x,y,width,height);
     }

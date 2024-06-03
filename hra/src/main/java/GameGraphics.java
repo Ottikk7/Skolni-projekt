@@ -12,19 +12,16 @@ import java.util.Collection;
 public class GameGraphics extends JPanel {
     GameLogic logic;
     BufferedImage bg1,bg2,bg3,bg4, titles, titleScreen, ruless;
-
-
-
     GameGraphics(GameLogic logic) {
         this.logic = logic;
         try {
-            ruless = ImageIO.read(new File("src/main/resources/Rules.png"));
-            titleScreen = ImageIO.read(new File("src/main/resources/mainMenu.png"));
-            titles = ImageIO.read(new File("src/main/resources/TITLE.png"));
-            bg1 = ImageIO.read(new File("src/main/resources/fieldAA.png"));
-            bg2 = ImageIO.read(new File("src/main/resources/fieldAA2.png"));
-            bg3 = ImageIO.read(new File("src/main/resources/fieldAA3.png"));
-            bg4 = ImageIO.read(new File("src/main/resources/fieldAA4.png"));
+            ruless = ImageIO.read(getClass().getResource("/Rules.png"));
+            titleScreen = ImageIO.read(getClass().getResource("/mainMenu.png"));
+            titles = ImageIO.read(getClass().getResource("/TITLE.png"));
+            bg1 = ImageIO.read(getClass().getResource("/fieldAA.png"));
+            bg2 = ImageIO.read(getClass().getResource("/fieldAA2.png"));
+            bg3 = ImageIO.read(getClass().getResource("/fieldAA3.png"));
+            bg4 = ImageIO.read(getClass().getResource("/fieldAA4.png"));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -46,10 +43,10 @@ public class GameGraphics extends JPanel {
                 g.drawImage(bg4  , 0, 0, logic.winWidth, logic.winHeight, null);
             }
             g.drawString("Score: "+ logic.score, 10,30);
-            logic.player.draw(g);
-            logic.ball.draw(g);
-            logic.goal.draw(g);
-            logic.enemy.draw(g);
+            g.drawImage(logic.player.getImage(), logic.player.getX(),logic.player.getY(),logic.player.getWidth(),logic.player.getHeight(),null);
+            g.drawImage(logic.ball.getImage(), logic.ball.getX(),logic.ball.getY(),logic.ball.getWidth(),logic.ball.getHeight(),null);
+            g.drawImage(logic.goal.getImage(), logic.goal.getX(),logic.goal.getY(),logic.goal.getWidth(),logic.goal.getHeight(),null);
+            g.drawImage(logic.enemy.getImage(), logic.enemy.getX(),logic.enemy.getY(),logic.enemy.getWidth(),logic.enemy.getHeight(),null);
 
 
         }
@@ -57,7 +54,7 @@ public class GameGraphics extends JPanel {
         if(!logic.game){
             g.drawImage(bg1, 0, 0, logic.winWidth, logic.winHeight, null);
             g.drawString("Score: "+ logic.score, 10,30);
-            logic.goal.draw(g);
+            g.drawImage(logic.goal.getImage(), logic.goal.getX(),logic.goal.getY(),logic.goal.getWidth(),logic.goal.getHeight(),null);
             g.drawImage(titleScreen,0,0,logic.winWidth, logic.winHeight, null);
             g.drawImage(titles,100,10, logic.winWidth - 200, logic.winHeight - 200, null);
             if(logic.rules){

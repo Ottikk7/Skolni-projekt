@@ -33,10 +33,6 @@ public class Player extends Entity implements KeyListener {
         }
 
     }
-    public void draw(Graphics g){
-        g.drawImage(image, x,y,width,height,null);
-
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {

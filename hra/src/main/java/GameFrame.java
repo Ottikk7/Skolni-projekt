@@ -20,11 +20,9 @@ public class GameFrame extends JFrame {
         setVisible(true);
         setTitle("Beat the KEEPER");
         setLocationRelativeTo(null);
-        try {
-            setIconImage(ImageIO.read(new File("src/main/resources/ovladac game.png")));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+
+
 
     }
 

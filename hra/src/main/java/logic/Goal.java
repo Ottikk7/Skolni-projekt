@@ -7,13 +7,8 @@ public final class Goal  extends  Entity  {
         super("brankaa.png");
         this.x = x;
         this.y = y;
-        width= 60;
-        height= 75;
-    }
-
-    public void draw(Graphics g) {
-        g.drawImage(image, x,y,200,250,null);
-
+        width= 200;
+        height= 250;
     }
 
 

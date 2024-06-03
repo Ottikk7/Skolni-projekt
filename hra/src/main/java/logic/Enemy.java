@@ -5,8 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Enemy extends Entity {
-
-
     public Enemy(int x, int y){
         super("brankar.png");
         this.x = x;
@@ -28,9 +26,6 @@ public class Enemy extends Entity {
         if(y > 400){
             speed *= -1;
         }
-    }
-    public void draw(Graphics g){
-        g.drawImage(image,x,y,width,height,null);
     }
 
 
