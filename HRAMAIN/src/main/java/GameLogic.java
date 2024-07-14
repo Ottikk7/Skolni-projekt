@@ -5,6 +5,7 @@ import logic.Player;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class GameLogic implements KeyListener {
+    int remainingTime,timer;
     int score;
     int winWidth,winHeight;
     Player player;
@@ -111,7 +112,7 @@ public class GameLogic implements KeyListener {
             if(enemy.getSpeed() >= 1){
                 enemy.setSpeed(5);
             }
-            gameLevel = 8;
+            gameLevel = 9;
         }
         if(score == 40){
             if(enemy.getSpeed() <= -1){
@@ -120,7 +121,7 @@ public class GameLogic implements KeyListener {
             if(enemy.getSpeed() >= 1){
                 enemy.setSpeed(5);
             }
-            gameLevel = 9;
+            gameLevel = 10;
         }
         if(score == 45){
             game = false;
@@ -134,6 +135,16 @@ public class GameLogic implements KeyListener {
         if(player.getY()>winHeight - player.getHeight()){
             player.setY(winHeight - player.getHeight());
         }
+        timer++;
+        if (timer>=120){
+            timer = 0;
+            remainingTime-=1;
+            System.out.println(remainingTime);
+        }
+        if (remainingTime<=0){
+            game=false;
+
+        }
     }
     public void updateBall(){
         if(isShooting){
@@ -146,12 +157,14 @@ public class GameLogic implements KeyListener {
             score++;
 
         } else if(ball.getX() == 0 && ball.getY() > 405){
+
                 game = false;
-        } else if(ball.getX() == 0 && ball.getY() < 150){
+        } else if(ball.getX() == 0 && ball.getY() < 170){
             game = false;
         }
         if(ball.getX() < -470){
             isShooting = false;
+            remainingTime = 10;
         }
     }
     public void reset(){
@@ -162,6 +175,7 @@ public class GameLogic implements KeyListener {
         enemy.setSpeed(1);
         gameLevel = 1;
         score = 0;
+        remainingTime=10;
     }
     @Override
     public void keyTyped(KeyEvent e) {

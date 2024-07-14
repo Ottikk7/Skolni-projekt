@@ -55,6 +55,7 @@ public class GameGraphics extends JPanel {
             }else if(logic.gameLevel == 9){
                 g.drawImage(bg9  , 0, 0, logic.winWidth, logic.winHeight, null);
             }
+            g.drawString("Remaining time:"+ logic.remainingTime,550,30);
             g.drawString("Score: "+ logic.score, 10,30);
             g.drawImage(logic.player.getImage(), logic.player.getX(),logic.player.getY(),logic.player.getWidth(),logic.player.getHeight(),null);
             g.drawImage(logic.ball.getImage(), logic.ball.getX(),logic.ball.getY(),logic.ball.getWidth(),logic.ball.getHeight(),null);
